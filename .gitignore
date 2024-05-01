@@ -1,0 +1,5 @@
+/poetry.lock
+.idea/**
+/.idea/*.iml
+/.idea/inspectionProfiles/**
+/djapy/__pycache__/
