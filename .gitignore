@@ -4,3 +4,4 @@
 /.idea/inspectionProfiles/**
 /djapy/__pycache__/
 /static/
+/djapy/.env
