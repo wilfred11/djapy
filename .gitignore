@@ -3,5 +3,5 @@
 /.idea/*.iml
 /.idea/inspectionProfiles/**
 /djapy/__pycache__/
-/static/
+/static/bootstrap/**
 /djapy/.env
