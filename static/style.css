@@ -1,22 +1,32 @@
- .sticky-top-second {
-   /*position: -webkit-sticky;*/
-   position: sticky;
-   /*top: 56px;*/
-   z-index: -10;
-   }
-
-  .below-first-nav {
-    top:56px;
-    z-index: 10;
-  }
-  .set-z-index {
+/* fixed first and second navbar */
+.set-z-index {
     z-index: 1029!important
-  }
+}
 
-  .has-min-height {
+.has-min-height {
     min-height:122px;
-  }
+}
 
-  .navbar-custom {
-  height: 50px;
+.navbar-custom {
+    height: 50px;
+}
+
+/* menu-items and elements padding */
+@media (min-width: 1278px) {
+  .navbar {
+    padding-right: 5rem;
+    padding-left: 5rem;
+  }
+}
+
+.navbar-brand {
+    padding-left: .25rem
+}
+
+.navbar-toggler {
+    padding-right: .75rem!important
+}
+
+.nav-item {
+    padding-left: .75rem!important
 }
