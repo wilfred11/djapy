@@ -9,6 +9,9 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
+
+
+#Todo https://www.sitepoint.com/managing-static-files-in-django-a-comprehensive-guide/
 import environ
 from pathlib import Path
 
@@ -42,8 +45,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'djapy_app',
     'django.db.backends.postgresql',
+    'django_extensions',
+    'djapy_app',
     'rest_app'
 ]
 
