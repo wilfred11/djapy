@@ -3,12 +3,9 @@
 <head>
     {% load static %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href='{% static "/style.css" %}' crossorigin="anonymous">
+    <script src='{% static "djapy_app/js/index.js" %}'></script>
+     <link rel="stylesheet" href='{% static "djapy_app/css/index.css" %}' crossorigin="anonymous">
     <meta charset="UTF-8" />
-    <script src="{% static 'script.js' %}"></script>
-    <link rel="stylesheet" href='{% static "/bootstrap/css/bootstrap.min.css" %}' crossorigin="anonymous">
-    <script src='{% static "/bootstrap/js/bootstrap.min.js" %}'></script>
-    <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>

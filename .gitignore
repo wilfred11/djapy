@@ -5,3 +5,4 @@
 /djapy/__pycache__/
 /static/bootstrap/**
 /djapy/.env
+/node_modules/**
