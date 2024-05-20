@@ -48,11 +48,10 @@ var configBasic = Object.assign({}, config, {
         config[page] = `./src/djapy_app/pages/basic/${page}.js`;
         return config;
     }, {}),
-    //entry: './src/djapy_app/js/index.js',
     output: {
         filename: "[name].js",
         path: path.resolve(__dirname, 'static', 'djapy_app', 'pages','basic', 'js'),
-        //clean: true,
+        clean: true,
     },
     plugins: [
         new MiniCssExtractPlugin({
@@ -67,11 +66,10 @@ var configDataTable = Object.assign({}, config, {
         config[page] = `./src/djapy_app/pages/dt/${page}.js`;
         return config;
     }, {}),
-    //entry: './src/djapy_app/js/index-dt.js',
     output: {
         filename: "[name]-dt.js",
         path: path.resolve(__dirname, 'static', 'djapy_app','pages','dt', 'js'),
-        //clean: true,
+        clean: true,
     },
     plugins: [
         new MiniCssExtractPlugin({
@@ -86,7 +84,7 @@ var config_ = Object.assign({}, config, {
     output: {
         filename: 'index.js',
         path: path.resolve(__dirname, 'static', 'djapy_app', 'js'),
-        //clean: true
+        clean: true
     },
     plugins: [
         new MiniCssExtractPlugin({
