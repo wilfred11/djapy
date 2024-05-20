@@ -1,10 +1,12 @@
 {
   "name": "djapy",
   "version": "1.0.0",
-  "description": "A first django configuration, with basic settings for usermanagement and static files. The project has its dependencies managed by poetry.",
+  "description": "File to be included with djapy project.",
   "main": "index.js",
   "dependencies": {
-    "bootstrap": "^5.3.3"
+    "bootstrap": "^5.3.3",
+    "datatables.net-dt": "^2.0.7",
+    "jquery": "^3.7.1"
   },
   "devDependencies": {
     "babel-loader": "^9.1.3",
