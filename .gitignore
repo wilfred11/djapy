@@ -3,6 +3,9 @@
 /.idea/*.iml
 /.idea/inspectionProfiles/**
 /djapy/__pycache__/
-/static/bootstrap/**
+/static/**
 /djapy/.env
 /node_modules/**
+/djapy_app/migrations/**
+/rest_app/migrations/**
+/package-lock.json
