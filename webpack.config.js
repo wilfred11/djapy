@@ -3,8 +3,8 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 
-const basicPages = ["page_1.js", "page_2.js"];
-const datatablePages = ["page_1.js", "page_2.js"];
+const basicPages = ["page_1", "page_2"];
+const datatablePages = ["page_1", "page_2"];
 
 var config = {
     //entry: './src/djapy_app/js/index.js',
@@ -28,8 +28,13 @@ var config = {
         ]
     },
     output: {
-        clean: true,
-    }
+        //clean: true,
+    },
+    /*optimization: {
+    splitChunks: {
+      chunks: "all",
+    },
+    },*/
     /*plugins: [
         new  MiniCssExtractPlugin({
             filename: '../css/index.css',
@@ -39,24 +44,49 @@ var config = {
 
 var configBasic = Object.assign({}, config, {
     name: "configBasic",
-    entry: './src/djapy_app/js/index.js',
+    entry: basicPages.reduce((config, page) => {
+        config[page] = `./src/djapy_app/pages/basic/${page}.js`;
+        return config;
+    }, {}),
+    //entry: './src/djapy_app/js/index.js',
     output: {
-        filename: 'index.js',
-        path: path.resolve(__dirname, 'static', 'djapy_app', 'js')
+        filename: "[name].js",
+        path: path.resolve(__dirname, 'static', 'djapy_app', 'pages','basic', 'js'),
+        //clean: true,
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: '../css/index.css',
+            filename: '../css/[name].css',
         })
     ]
 });
 
 var configDataTable = Object.assign({}, config, {
     name: "configDataTable",
-    entry: './src/djapy_app/js/index-dt.js',
+    entry: datatablePages.reduce((config, page) => {
+        config[page] = `./src/djapy_app/pages/dt/${page}.js`;
+        return config;
+    }, {}),
+    //entry: './src/djapy_app/js/index-dt.js',
     output: {
-        filename: 'index-dt.js',
-        path: path.resolve(__dirname, 'static', 'djapy_app', 'js')
+        filename: "[name]-dt.js",
+        path: path.resolve(__dirname, 'static', 'djapy_app','pages','dt', 'js'),
+        //clean: true,
+    },
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: '../css/[name].css',
+        })
+    ]
+});
+
+var config_ = Object.assign({}, config, {
+    name: "config_",
+    entry: './src/djapy_app/js/index.js',
+    output: {
+        filename: 'index.js',
+        path: path.resolve(__dirname, 'static', 'djapy_app', 'js'),
+        //clean: true
     },
     plugins: [
         new MiniCssExtractPlugin({
@@ -65,4 +95,4 @@ var configDataTable = Object.assign({}, config, {
     ]
 });
 
-module.exports = [configBasic, configDataTable]
+module.exports = {configBasic, configDataTable, config_}

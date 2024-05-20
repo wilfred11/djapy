@@ -1,1 +1,1 @@
-import '../js/index-dt.js';
+import '../../js/index-dt.js';

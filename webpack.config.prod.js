@@ -1,11 +1,14 @@
 const { merge } = require('webpack-merge');
-const commonConfig = require('./webpack.config.js');
-module.exports = merge(commonConfig[0], {
-    mode: 'production',
-    // ... (environment-specific settings)
-});
+const {configBasic, configDataTable, config_} = require('./webpack.config.js')
 
-module.exports = merge(commonConfig[1], {
+module.exports = [merge(configBasic, {
     mode: 'production',
     // ... (environment-specific settings)
-});
+}), merge(configDataTable, {
+    mode: 'production',
+    // ... (environment-specific settings)
+}),merge(config_, {
+    mode: 'production',
+    // ... (environment-specific settings)
+})
+]
