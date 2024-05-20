@@ -4,7 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 
 const basicPages = ["page_1", "page_2"];
-const datatablePages = ["page_1", "page_2"];
+const datatablePages = ["families", "page_2"];
 
 var config = {
     //entry: './src/djapy_app/js/index.js',

@@ -3,8 +3,10 @@
 <head>
     {% load static %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% block index %}
     <script src='{% static "djapy_app/js/index.js" %}'></script>
-     <link rel="stylesheet" href='{% static "djapy_app/css/index.css" %}' crossorigin="anonymous">
+    <link rel="stylesheet" href='{% static "djapy_app/css/index.css" %}' crossorigin="anonymous">
+    {% endblock %}
     <meta charset="UTF-8" />
     <title>{% block title %}{% endblock %}</title>
 </head>
