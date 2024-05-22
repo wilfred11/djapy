@@ -1,20 +1,22 @@
 import asyncio
 import os
 from datetime import date
-
 from asgiref.sync import async_to_sync
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.views.generic import TemplateView
-
+from django_datatables_view.base_datatable_view import BaseDatatableView
+from rest_framework.decorators import api_view
+from django.core import serializers
 from djapy_app.entity_api import ApiCall
+from djapy_app.models import Some
 
 
 # Create your views here.
 # https://djangoforbeginners.com/hello-world/
 # https://dev.to/pragativerma18/unlocking-performance-a-guide-to-async-support-in-django-2jdj
 
-
+# TODO https://www.pluralsight.com/resources/blog/guides/work-with-ajax-django
 class HomePageView(TemplateView):
     template_name = "home.html"
 
@@ -56,3 +58,30 @@ class FamiliesPageView(TemplateView):
         context['title'] = 'Families'
         context['content'] = self.get_json_data()
         return context
+
+
+class SomeAjaxDatatableView(BaseDatatableView):
+    model = Some
+
+def test(request):
+    content = "Hello, World!"
+    return render(request, 'test.html', {'content': content})
+
+def SomeJsonList(request):
+    data = list(Some.objects.values())
+    return JsonResponse({'data': data})
+
+@api_view(['GET'])
+def some_list(request):
+    """
+    List all code snippets, or create a new snippet.
+    """
+    if request.method == 'GET':
+        data = list(Some.objects.values())
+        return JsonResponse({'data': data})
+
+def Some_asJson(request):
+    object_list = Some.objects.all() #or any kind of queryset
+    json = serializers.serialize('json', object_list)
+    return HttpResponse(json, content_type='application/json')
+

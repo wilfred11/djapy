@@ -1,0 +1,19 @@
+{% extends 'base/base_dt.html' %}
+{% load static %}
+{% block css %}
+      {{ block.super }}
+      {# we can add more css here #}
+{% endblock %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+{{ content }}
+{% endblock %}
+
+{% block js %}
+   {{ block.super }}
+   <%= htmlWebpackPlugin.tags.bodyTags %>
+{% endblock %}

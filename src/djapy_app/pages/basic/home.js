@@ -1,1 +1,1 @@
-import '../../js/index.js';
+alert('home');

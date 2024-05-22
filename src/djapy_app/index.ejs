@@ -1,0 +1,23 @@
+{% block html %}
+{% load static %}
+   <head>
+       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+       <meta charset="UTF-8" />
+       {% block css %}
+        <%= htmlWebpackPlugin.tags.headTags %>
+        {% endblock %}
+        <title>{% block title %}{% endblock %}</title>
+   </head>
+   <body>
+       {% include "base/navbar.html" %}
+       {% block page_title %}
+            <h3>{{ title }}</h3>
+       {% endblock %}
+       {% block content %}
+            {{ content }}
+       {% endblock %}
+   </body>
+   {% block js %}
+   <%= htmlWebpackPlugin.tags.bodyTags %>
+   {% endblock %}
+{% endblock %}

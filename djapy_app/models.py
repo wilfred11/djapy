@@ -18,4 +18,11 @@ class DjapyUser(AbstractUser):
     def __str__(self):
         return self.email
 
+class Some(models.Model):
+        f_name = models.CharField(max_length=55)
+        l_name = models.CharField(max_length=55)
+
+        class Meta:
+            db_table = "some"
+
 

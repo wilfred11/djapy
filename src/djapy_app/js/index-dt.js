@@ -1,4 +1,5 @@
-import './index.js';
-import 'jquery';
-
-import DataTable from 'datatables.net-dt';
+//import './index.js';
+//import $ from 'jquery'
+//window.jQuery = $;
+//window.$ = $;
+import DataTable from 'datatables.net-bs5';
