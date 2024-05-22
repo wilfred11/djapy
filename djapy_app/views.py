@@ -18,7 +18,7 @@ from djapy_app.models import Some
 
 # TODO https://www.pluralsight.com/resources/blog/guides/work-with-ajax-django
 class HomePageView(TemplateView):
-    template_name = "home.html"
+    template_name = "gen/home.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -29,7 +29,7 @@ class HomePageView(TemplateView):
 
 
 class IndividualsPageView(TemplateView):
-    template_name = 'individuals.html'
+    template_name = 'gen/individuals.html'
 
     def get_json_data(self):
         api_call = ApiCall()
@@ -45,7 +45,7 @@ class IndividualsPageView(TemplateView):
 
 
 class FamiliesPageView(TemplateView):
-    template_name = 'families.html'
+    template_name = 'gen/families.html'
 
     def get_json_data(self):
         api_call = ApiCall()

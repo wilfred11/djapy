@@ -62,7 +62,7 @@ var configBasic = Object.assign({}, config, {
         new HtmlWebpackPlugin({
           inject: false,
           template:path.resolve(__dirname, 'src', 'djapy_app','page.ejs'),
-          filename: path.resolve(__dirname,'templates', `${page}.html`),
+          filename: path.resolve(__dirname,'templates','gen', `${page}.html`),
           chunks: [page],
         })
     ),new HtmlWebpackPluginDjango({ bundlePath: "djapy_app/pages/basic/js" }), new MiniCssExtractPlugin({
@@ -88,7 +88,7 @@ var configDataTable = Object.assign({}, config, {
         new HtmlWebpackPlugin({
           inject: false,
           template:path.resolve(__dirname, 'src', 'djapy_app','page_dt.ejs'),
-          filename: path.resolve(__dirname,'templates', `${page}.html`),
+          filename: path.resolve(__dirname,'templates', 'gen', `${page}.html`),
           chunks: [page],
         })
     ),new HtmlWebpackPluginDjango({ bundlePath: "djapy_app/pages/dt/js" }), new MiniCssExtractPlugin({
