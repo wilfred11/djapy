@@ -9,3 +9,4 @@
 /djapy_app/migrations/**
 /rest_app/migrations/**
 /package-lock.json
+/gen/**
