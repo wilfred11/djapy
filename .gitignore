@@ -11,4 +11,5 @@
 /package-lock.json
 /base-gen/**
 /templates/base-gen/
-/templates/gen/
+/templates/gen/*
+!/templates/gen/dt/*/partials

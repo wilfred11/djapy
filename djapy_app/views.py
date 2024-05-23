@@ -18,7 +18,7 @@ from djapy_app.models import Some
 
 # TODO https://www.pluralsight.com/resources/blog/guides/work-with-ajax-django
 class HomePageView(TemplateView):
-    template_name = "gen/home.html"
+    template_name = "gen/basic/home/home.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -32,7 +32,7 @@ class HomePageView(TemplateView):
 
 
 class FamiliesPageView(TemplateView):
-    template_name = 'gen/families.html'
+    template_name = 'gen/dt/families/families.html'
 
     def get_json_data(self):
         api_call = ApiCall()
@@ -71,4 +71,6 @@ def Some_asJson(request):
     object_list = Some.objects.all() #or any kind of queryset
     json = serializers.serialize('json', object_list)
     return HttpResponse(json, content_type='application/json')
+
+
 

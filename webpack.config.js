@@ -7,7 +7,7 @@ const HtmlWebpackInjector = require('html-webpack-injector');
 const path = require('path');
 
 const basicPages = ['home', "page_1", "page_2"];
-const datatablePages = ["families", "individuals", 'test'];
+const datatablePages = ["families", 'test', 'some'];
 
 var config = {
     //entry: './src/djapy_app/js/index.js',
