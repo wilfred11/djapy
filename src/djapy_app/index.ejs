@@ -10,6 +10,7 @@
    </head>
    <body>
        {% include "base/navbar.html" %}
+       <div class="container">
        {% block page_title %}
             <h3>{{ title }}</h3>
        {% endblock %}
@@ -18,6 +19,7 @@
        {% block content %}
             {{ content }}
        {% endblock %}
+       </div>
    </body>
    {% block js %}
    <%= htmlWebpackPlugin.tags.bodyTags %>

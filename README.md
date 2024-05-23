@@ -6,13 +6,18 @@ To import bootstrap and the webpack libraries, use following command:
 
 npm install
 
-To generate webpack js and css files from input, use the following command:
+Webpack is configured to create template files, include external js libraries, generate css and js files. For every file in 
+./src/djapy_app/pages/basic and ./src/djapy_app/pages/basic it creates a template file, and all static files needed to serve this django template properly.
+/dt directory contains files that are used to serve templates containing a datatable, /basic directory contains basic 
 
-npx webpack --config webpack.config.dev.js
+
+To generate webpack js, css and template files, use the following command:
+
+npm run build-dev
 
 To watch the files in src/djapy_app/, use command:
 
-npm run dev
+npm run dev-watch
 
 
 To install python packages use the poetry command

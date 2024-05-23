@@ -1,1 +1,1 @@
-import '../../js/index.js';
+console.log('test');

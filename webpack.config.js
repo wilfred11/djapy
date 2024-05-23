@@ -4,18 +4,34 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackPluginDjango = require("html-webpack-plugin-django");
 const HtmlWebpackInjector = require('html-webpack-injector');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const path = require('path');
+const fs = require('fs');
 
-const basicPages = ['home', "page_1", "page_2"];
-const datatablePages = ["families", 'test', 'some'];
+//const basicPages = ['home', "page_1", "page_2"];
+//const datatablePages = ["families", 'some'];
+const EXTENSION = '.js';
+
+datatablePath = path.resolve(__dirname, 'src', 'djapy_app', 'pages','dt')
+datatableFilenames = fs.readdirSync(datatablePath);
+datatableFilenames = datatableFilenames.map(file => {
+    if (path.extname(file).toLowerCase() === EXTENSION) {
+        return file;
+    }
+});
+const datatablePages = datatableFilenames.map(function(e){ return path.parse(e).name });
+basicPath = path.resolve(__dirname, 'src', 'djapy_app', 'pages','basic');
+basicFilenames = fs.readdirSync(basicPath);
+basicFilenames = basicFilenames.map(file => {
+    if (path.extname(file).toLowerCase() === EXTENSION) {
+        return file;
+    }
+});
+const basicPages = basicFilenames.map(function(e){ return path.parse(e).name });
+
 
 var config = {
-    //entry: './src/djapy_app/js/index.js',
     mode: 'none',
-    /*output: {
-        filename: 'index.js',
-        path: path.resolve(__dirname, 'static', 'djapy_app', 'js')
-    },*/
     module: {
         rules: [
             {
@@ -57,7 +73,8 @@ var configBasic = Object.assign({}, config, {
         //clean: true,
     },
     plugins: [].concat(
-    basicPages.map(
+     new CleanWebpackPlugin(),
+     basicPages.map(
       (page) =>
         new HtmlWebpackPlugin({
           inject: false,
@@ -83,6 +100,7 @@ var configDataTable = Object.assign({}, config, {
         clean: true,
     },
     plugins: [].concat(
+     new CleanWebpackPlugin(),
     datatablePages.map(
       (page) =>
         new HtmlWebpackPlugin({

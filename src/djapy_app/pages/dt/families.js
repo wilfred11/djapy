@@ -1,1 +1,1 @@
-import '../../js/index-dt.js';
+console.log('test');
