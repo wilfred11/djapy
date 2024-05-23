@@ -7,7 +7,7 @@ const HtmlWebpackInjector = require('html-webpack-injector');
 const path = require('path');
 
 const basicPages = ['home', "page_1", "page_2"];
-const datatablePages = ["families", "individuals"];
+const datatablePages = ["families", "individuals", 'test'];
 
 var config = {
     //entry: './src/djapy_app/js/index.js',
@@ -62,7 +62,7 @@ var configBasic = Object.assign({}, config, {
         new HtmlWebpackPlugin({
           inject: false,
           template:path.resolve(__dirname, 'src', 'djapy_app','page.ejs'),
-          filename: path.resolve(__dirname,'templates','gen', `${page}.html`),
+          filename: path.resolve(__dirname,'templates','gen','basic', `${page}`,`${page}.html`),
           chunks: [page],
         })
     ),new HtmlWebpackPluginDjango({ bundlePath: "djapy_app/pages/basic/js" }), new MiniCssExtractPlugin({
@@ -88,7 +88,7 @@ var configDataTable = Object.assign({}, config, {
         new HtmlWebpackPlugin({
           inject: false,
           template:path.resolve(__dirname, 'src', 'djapy_app','page_dt.ejs'),
-          filename: path.resolve(__dirname,'templates', 'gen', `${page}.html`),
+          filename: path.resolve(__dirname,'templates', 'gen', 'dt', `${page}`,`${page}.html`),
           chunks: [page],
         })
     ),new HtmlWebpackPluginDjango({ bundlePath: "djapy_app/pages/dt/js" }), new MiniCssExtractPlugin({
@@ -109,7 +109,7 @@ var config_ = Object.assign({}, config, {
     plugins: [
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'src', 'djapy_app','index.ejs'),
-            filename: path.resolve(__dirname,'templates', 'base', 'base_.html'),
+            filename: path.resolve(__dirname,'templates', 'base-gen', 'base_.html'),
             chunks: ["index"],
             inject:false
         }),
@@ -132,7 +132,7 @@ var config_dt_ = Object.assign({}, config, {
     plugins: [
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'src', 'djapy_app','index.ejs'),
-            filename: path.resolve(__dirname,'templates', 'base', 'base_dt.html'),
+            filename: path.resolve(__dirname,'templates', 'base-gen', 'base_dt.html'),
             chunks: ["index_dt"],
             inject:false
         }),

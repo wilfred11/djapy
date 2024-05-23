@@ -1,8 +1,9 @@
 # pages/urls.py
 from django.urls import path
 
-from .views import HomePageView, IndividualsPageView, FamiliesPageView, SomeAjaxDatatableView, test, SomeJsonList, \
+from .views import HomePageView, SomeAjaxDatatableView, test, SomeJsonList, \
     some_list, Some_asJson
+from .views_dt import IndividualsPageView, FamiliesPageView
 
 urlpatterns = [
     path("", HomePageView.as_view(), name="home"),

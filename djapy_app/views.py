@@ -28,20 +28,7 @@ class HomePageView(TemplateView):
         return context
 
 
-class IndividualsPageView(TemplateView):
-    template_name = 'gen/individuals.html'
 
-    def get_json_data(self):
-        api_call = ApiCall()
-        json = asyncio.run(api_call.get_json_data(data_type='individuals'))
-        return json
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['today'] = date.today()
-        context['title'] = 'Individuals'
-        context['content'] = self.get_json_data()
-        return context
 
 
 class FamiliesPageView(TemplateView):
@@ -65,7 +52,7 @@ class SomeAjaxDatatableView(BaseDatatableView):
 
 def test(request):
     content = "Hello, World!"
-    return render(request, 'test.html', {'content': content})
+    return render(request, 'gen/test.html', {'content': content})
 
 def SomeJsonList(request):
     data = list(Some.objects.values())

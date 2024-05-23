@@ -9,4 +9,6 @@
 /djapy_app/migrations/**
 /rest_app/migrations/**
 /package-lock.json
-/gen/**
+/base-gen/**
+/templates/base-gen/
+/templates/gen/
