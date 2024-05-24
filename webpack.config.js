@@ -83,7 +83,7 @@ var configBasic = Object.assign({}, config, {
         new HtmlWebpackPlugin({
           inject: false,
           template:path.resolve(__dirname, 'src', 'djapy_app','page.ejs'),
-          filename: path.resolve(__dirname,'templates','gen','basic',  `${page}`, `${page}.html`),
+          filename: path.resolve(__dirname,'templates','gen','basic',  `${page}`, `${page}-gen.html`),
           chunks: [page],
         })
       ),
@@ -110,7 +110,7 @@ var configDataTable = Object.assign({}, config, {
             new HtmlWebpackPlugin({
               inject: false,
               template:path.resolve(__dirname, 'src', 'djapy_app','page_dt.ejs'),
-              filename: path.resolve(__dirname,'templates', 'gen', 'dt', `${page}`, `${page}.html`),
+              filename: path.resolve(__dirname,'templates', 'gen', 'dt', `${page}`, `${page}-gen.html`),
               chunks: [page],
             })
         ),

@@ -13,7 +13,7 @@ from djapy_app.models import Some
 
 
 class FamiliesPageView(TemplateView):
-    template_name = 'gen/dt/families/families.html'
+    template_name = 'gen/dt/families/families-gen.html'
 
     def get_json_data(self):
         api_call = ApiCall()
@@ -43,7 +43,7 @@ class IndividualsPageView(TemplateView):
         return context
 
     class SomePageView(TemplateView):
-        template_name = "gen/dt/some/some.html"
+        template_name = "gen/dt/some/some-gen.html"
 
         def get_context_data(self, **kwargs):
             context = super().get_context_data(**kwargs)
@@ -54,4 +54,4 @@ class IndividualsPageView(TemplateView):
 
 def som(request):
     content = "Hello, World!"
-    return render(request, "gen/dt/some/some.html", {'content': content})
+    return render(request, "gen/dt/some/some-gen.html", {'content': content})
