@@ -2,6 +2,7 @@ const { merge } = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require("terser-webpack-plugin");
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
+const CleanupMiniCssExtractPlugin = require("cleanup-mini-css-extract-plugin");
 const {configBasic, configDataTable, config_, config_dt_} = require('./webpack.config.js')
 
 module.exports = [merge(configBasic, {
@@ -36,7 +37,7 @@ module.exports = [merge(configBasic, {
     module.exports[i].plugins=module.exports[i].plugins.concat(
         [new MiniCssExtractPlugin({
            filename: '../css/[name].[contenthash].css',
-        })],
+        }), new CleanupMiniCssExtractPlugin({warnings:true})],
     );
 
     module.exports[i].optimization = {
