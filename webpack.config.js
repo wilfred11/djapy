@@ -5,7 +5,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackPluginDjango = require("html-webpack-plugin-django");
 const HtmlWebpackInjector = require('html-webpack-injector');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const CleanupMiniCssExtractPlugin = require("cleanup-mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const path = require('path');
 const fs = require('fs');
@@ -77,7 +76,7 @@ var configBasic = Object.assign({}, config, {
         clean: true,
     },
     plugins: [].concat(
-     new CleanWebpackPlugin(),
+     //new CleanWebpackPlugin(),
      basicPages.map(
       (page) =>
         new HtmlWebpackPlugin({
@@ -88,7 +87,7 @@ var configBasic = Object.assign({}, config, {
         })
       ),
       new HtmlWebpackPluginDjango({ bundlePath: "djapy_app/pages/basic/js" }),
-      new CleanupMiniCssExtractPlugin(),
+      //new CleanupMiniCssExtractPlugin(),
       new HtmlWebpackInjector())
 });
 
@@ -104,7 +103,7 @@ var configDataTable = Object.assign({}, config, {
         clean: true,
     },
     plugins: [].concat(
-     new CleanWebpackPlugin(),
+     //new CleanWebpackPlugin(),
         datatablePages.map(
           (page) =>
             new HtmlWebpackPlugin({
@@ -115,7 +114,7 @@ var configDataTable = Object.assign({}, config, {
             })
         ),
         new HtmlWebpackPluginDjango({ bundlePath: "djapy_app/pages/dt/js" }),
-        new CleanupMiniCssExtractPlugin(),
+        //new CleanupMiniCssExtractPlugin(),
         new HtmlWebpackInjector())
 });
 
@@ -136,7 +135,7 @@ var config_ = Object.assign({}, config, {
             inject:false
         }),
         new HtmlWebpackPluginDjango({ bundlePath: "djapy_app/basic/js" }),
-        new CleanupMiniCssExtractPlugin(),
+        //new CleanupMiniCssExtractPlugin(),
         new HtmlWebpackInjector()
     ]
 });
@@ -157,7 +156,7 @@ var config_dt_ = Object.assign({}, config, {
             inject:false
         }),
         new HtmlWebpackPluginDjango({ bundlePath: "djapy_app/dt/js" }),
-        new CleanupMiniCssExtractPlugin(),
+        //new CleanupMiniCssExtractPlugin(),
         new HtmlWebpackInjector()
     ]
 });
