@@ -27,6 +27,8 @@
     "webpack-cli": "^5.1.4"
   },
   "scripts": {
+    "prebuild-prod": "node clean-generated-template-files.js",
+    "prebuild-dev": "node clean-generated-template-files.js",
     "build-dev": "webpack --config webpack.config.dev.js",
     "build-prod": "webpack --config webpack.config.prod.js",
     "prod-watch": "webpack --config webpack.config.prod.js --watch",
