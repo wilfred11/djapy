@@ -1,5 +1,7 @@
 const { merge } = require('webpack-merge');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const TerserPlugin = require("terser-webpack-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const {configBasic, configDataTable, config_, config_dt_} = require('./webpack.config.js')
 
 module.exports = [merge(configBasic, {
@@ -18,21 +20,31 @@ module.exports = [merge(configBasic, {
     output: {
         filename: '[name].[contenthash].js',
     },
-    plugins: [
-        new MiniCssExtractPlugin({
-            filename: '../css/index.[contenthash].css',
-        })
-    ],
+
     }),merge(config_dt_, {
     mode: 'production',
     output: {
         filename: '[name].[contenthash].js',
     },
-    plugins: [
-        new MiniCssExtractPlugin({
-            filename: '../css/index-dt.[contenthash].css',
-        })
-    ]
+
     // ... (environment-specific settings)
 })
 ]
+
+
+ for(var i = 0; i < 4;i++){
+    module.exports[i].plugins=module.exports[i].plugins.concat(
+        [new MiniCssExtractPlugin({
+           filename: '../css/[name].[contenthash].css',
+        })],
+    );
+
+    module.exports[i].optimization = {
+        minimize: true,
+        minimizer: [new TerserPlugin(), new CssMinimizerPlugin()],
+    }
+    module.exports[i].devtool = 'source-map'
+
+}
+
+//console.log(module.exports[0])

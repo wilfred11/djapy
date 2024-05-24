@@ -5,6 +5,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackPluginDjango = require("html-webpack-plugin-django");
 const HtmlWebpackInjector = require('html-webpack-injector');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CleanupMiniCssExtractPlugin = require("cleanup-mini-css-extract-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 const path = require('path');
 const fs = require('fs');
 
@@ -49,11 +51,13 @@ var config = {
     output: {
         //clean: true,
     },
-    /*optimization: {
-    splitChunks: {
+    optimization: {
+        minimize: true,
+        minimizer: [new TerserPlugin()],
+    /*splitChunks: {
       chunks: "all",
-    },
     },*/
+    },
     /*plugins: [
         new  MiniCssExtractPlugin({
             filename: '../css/index.css',
@@ -70,7 +74,7 @@ var configBasic = Object.assign({}, config, {
     output: {
         filename: "[name].js",
         path: path.resolve(__dirname, 'static', 'djapy_app', 'pages','basic', 'js'),
-        //clean: true,
+        clean: true,
     },
     plugins: [].concat(
      new CleanWebpackPlugin(),
@@ -79,13 +83,13 @@ var configBasic = Object.assign({}, config, {
         new HtmlWebpackPlugin({
           inject: false,
           template:path.resolve(__dirname, 'src', 'djapy_app','page.ejs'),
-          filename: path.resolve(__dirname,'templates','gen','basic', `${page}`,`${page}.html`),
+          filename: path.resolve(__dirname,'templates','gen','basic',  `${page}`, `${page}.html`),
           chunks: [page],
         })
-    ),new HtmlWebpackPluginDjango({ bundlePath: "djapy_app/pages/basic/js" }), new MiniCssExtractPlugin({
-            filename: '../css/[name].css',
-        }),
-        new HtmlWebpackInjector())
+      ),
+      new HtmlWebpackPluginDjango({ bundlePath: "djapy_app/pages/basic/js" }),
+      new CleanupMiniCssExtractPlugin(),
+      new HtmlWebpackInjector())
 });
 
 var configDataTable = Object.assign({}, config, {
@@ -96,22 +100,22 @@ var configDataTable = Object.assign({}, config, {
     }, {}),
     output: {
         filename: "[name]-dt.js",
-        path: path.resolve(__dirname, 'static', 'djapy_app','pages','dt', 'js'),
+        path: path.resolve(__dirname, 'static', 'djapy_app','pages', 'dt','js'),
         clean: true,
     },
     plugins: [].concat(
      new CleanWebpackPlugin(),
-    datatablePages.map(
-      (page) =>
-        new HtmlWebpackPlugin({
-          inject: false,
-          template:path.resolve(__dirname, 'src', 'djapy_app','page_dt.ejs'),
-          filename: path.resolve(__dirname,'templates', 'gen', 'dt', `${page}`,`${page}.html`),
-          chunks: [page],
-        })
-    ),new HtmlWebpackPluginDjango({ bundlePath: "djapy_app/pages/dt/js" }), new MiniCssExtractPlugin({
-            filename: '../css/[name].css',
-        }),
+        datatablePages.map(
+          (page) =>
+            new HtmlWebpackPlugin({
+              inject: false,
+              template:path.resolve(__dirname, 'src', 'djapy_app','page_dt.ejs'),
+              filename: path.resolve(__dirname,'templates', 'gen', 'dt', `${page}`, `${page}.html`),
+              chunks: [page],
+            })
+        ),
+        new HtmlWebpackPluginDjango({ bundlePath: "djapy_app/pages/dt/js" }),
+        new CleanupMiniCssExtractPlugin(),
         new HtmlWebpackInjector())
 });
 
@@ -121,8 +125,8 @@ var config_ = Object.assign({}, config, {
     },
     output: {
         filename: '[name].js',
-        path: path.resolve(__dirname, 'static', 'djapy_app', 'js'),
-        //clean: true
+        path: path.resolve(__dirname, 'static', 'djapy_app','basic', 'js'),
+        clean: true
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -131,10 +135,8 @@ var config_ = Object.assign({}, config, {
             chunks: ["index"],
             inject:false
         }),
-        new HtmlWebpackPluginDjango({ bundlePath: "djapy_app/js" }),
-        new MiniCssExtractPlugin({
-            filename: '../css/index.css',
-        }),
+        new HtmlWebpackPluginDjango({ bundlePath: "djapy_app/basic/js" }),
+        new CleanupMiniCssExtractPlugin(),
         new HtmlWebpackInjector()
     ]
 });
@@ -144,8 +146,8 @@ var config_dt_ = Object.assign({}, config, {
     entry: {index_dt:['./src/djapy_app/js/index.js','./src/djapy_app/js/index-jq.js', './src/djapy_app/js/index-dt.js']},
     output: {
         filename: '[name].js',
-        path: path.resolve(__dirname, 'static', 'djapy_app', 'js'),
-        //clean: true
+        path: path.resolve(__dirname, 'static', 'djapy_app', 'dt', 'js'),
+        clean: true
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -154,10 +156,8 @@ var config_dt_ = Object.assign({}, config, {
             chunks: ["index_dt"],
             inject:false
         }),
-        new HtmlWebpackPluginDjango({ bundlePath: "djapy_app/js" }),
-        new MiniCssExtractPlugin({
-            filename: '../css/index-dt.css',
-        }),
+        new HtmlWebpackPluginDjango({ bundlePath: "djapy_app/dt/js" }),
+        new CleanupMiniCssExtractPlugin(),
         new HtmlWebpackInjector()
     ]
 });

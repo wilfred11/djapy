@@ -1,5 +1,5 @@
 const { merge } = require('webpack-merge');
-const commonConfig = require('./webpack.config.js');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const {configBasic, configDataTable, config_, config_dt_} = require('./webpack.config.js')
 module.exports = [merge(configBasic, {
     mode: 'development',
@@ -32,3 +32,13 @@ module.exports = [merge(configBasic, {
     // ... (environment-specific settings)
 })
 ]
+
+ for(var i = 0; i < 4;i++){
+    module.exports[i].plugins=module.exports[i].plugins.concat(
+        [new MiniCssExtractPlugin({
+           filename: '../css/[name].css',
+        })],
+    );
+}
+
+

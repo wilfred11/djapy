@@ -28,7 +28,7 @@ class FamiliesPageView(TemplateView):
         return context
 
 class IndividualsPageView(TemplateView):
-    template_name = 'gen/dt/individuals.html'
+    template_name = 'gen/dt/individuals/individuals.html'
 
     def get_json_data(self):
         api_call = ApiCall()
