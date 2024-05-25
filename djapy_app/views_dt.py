@@ -1,15 +1,10 @@
 import asyncio
-import os
 from datetime import date
-from asgiref.sync import async_to_sync
-from django.http import HttpResponse, JsonResponse
+
 from django.shortcuts import render
 from django.views.generic import TemplateView
-from django_datatables_view.base_datatable_view import BaseDatatableView
-from rest_framework.decorators import api_view
-from django.core import serializers
+
 from djapy_app.entity_api import ApiCall
-from djapy_app.models import Some
 
 
 class FamiliesPageView(TemplateView):
@@ -26,6 +21,7 @@ class FamiliesPageView(TemplateView):
         context['title'] = 'Families'
         context['content'] = self.get_json_data()
         return context
+
 
 class IndividualsPageView(TemplateView):
     template_name = 'gen/dt/individuals/individuals-gen.html'
@@ -51,6 +47,7 @@ class IndividualsPageView(TemplateView):
             context['content'] = 'no message'
             context['title'] = 'Home'
             return context
+
 
 def som(request):
     content = "Hello, World!"

@@ -1,8 +1,7 @@
 # pages/urls.py
 from django.urls import path
 
-from .views import HomePageView, SomeAjaxDatatableView, SomeJsonList, \
-    some_list, Some_asJson
+from .views import HomePageView, Some_asJson
 from .views_dt import IndividualsPageView, FamiliesPageView, som
 
 urlpatterns = [
@@ -10,5 +9,5 @@ urlpatterns = [
     path("individuals", IndividualsPageView.as_view(), name="individuals"),
     path("families", FamiliesPageView.as_view(), name="families1"),
     path("s", som, name="s"),
-    path("some",Some_asJson , name="some"),
+    path("some", Some_asJson, name="some"),
 ]

@@ -1,6 +1,6 @@
 from django.core import management
 from django.core.management.base import BaseCommand
-from django.core.management.commands import makemigrations, flush, migrate
+from django.core.management.commands import makemigrations, migrate
 from django.utils import timezone
 from django_extensions.management.commands import reset_db
 
