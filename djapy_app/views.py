@@ -1,13 +1,11 @@
 import asyncio
-import os
 from datetime import date
-from asgiref.sync import async_to_sync
+from django.core import serializers
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from django_datatables_view.base_datatable_view import BaseDatatableView
 from rest_framework.decorators import api_view
-from django.core import serializers
 from djapy_app.entity_api import ApiCall
 from djapy_app.models import Some
 
@@ -18,7 +16,7 @@ from djapy_app.models import Some
 
 # TODO https://www.pluralsight.com/resources/blog/guides/work-with-ajax-django
 class HomePageView(TemplateView):
-    template_name = "gen/basic/home/home.html"
+    template_name = "gen/basic/home/home-gen.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -28,11 +26,8 @@ class HomePageView(TemplateView):
         return context
 
 
-
-
-
 class FamiliesPageView(TemplateView):
-    template_name = 'gen/dt/families/families.html'
+    template_name = 'gen/dt/families/families-gen.html'
 
     def get_json_data(self):
         api_call = ApiCall()
@@ -50,13 +45,12 @@ class FamiliesPageView(TemplateView):
 class SomeAjaxDatatableView(BaseDatatableView):
     model = Some
 
-def test(request):
-    content = "Hello, World!"
-    return render(request, 'gen/test.html', {'content': content})
+
 
 def SomeJsonList(request):
     data = list(Some.objects.values())
     return JsonResponse({'data': data})
+
 
 @api_view(['GET'])
 def some_list(request):
@@ -67,10 +61,8 @@ def some_list(request):
         data = list(Some.objects.values())
         return JsonResponse({'data': data})
 
+
 def Some_asJson(request):
-    object_list = Some.objects.all() #or any kind of queryset
+    object_list = Some.objects.all()  # or any kind of queryset
     json = serializers.serialize('json', object_list)
     return HttpResponse(json, content_type='application/json')
-
-
-

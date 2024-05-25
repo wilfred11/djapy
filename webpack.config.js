@@ -4,8 +4,9 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackPluginDjango = require("html-webpack-plugin-django");
 const HtmlWebpackInjector = require('html-webpack-injector');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+//const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const TerserPlugin = require("terser-webpack-plugin");
+const ESLintPlugin = require('eslint-webpack-plugin');
 const path = require('path');
 const fs = require('fs');
 
@@ -76,6 +77,7 @@ var configBasic = Object.assign({}, config, {
         clean: true,
     },
     plugins: [].concat(
+     new ESLintPlugin({fix:true, files:["src/**/*.js"]}),
      //new CleanWebpackPlugin(),
      basicPages.map(
       (page) =>
@@ -103,6 +105,7 @@ var configDataTable = Object.assign({}, config, {
         clean: true,
     },
     plugins: [].concat(
+        new ESLintPlugin({fix:true, files:["src/**/*.js"]}),
      //new CleanWebpackPlugin(),
         datatablePages.map(
           (page) =>
@@ -128,6 +131,7 @@ var config_ = Object.assign({}, config, {
         clean: true
     },
     plugins: [
+        new ESLintPlugin({fix:true, files:["src/**/*.js"]}),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'src', 'djapy_app','index.ejs'),
             filename: path.resolve(__dirname,'templates', 'base-gen', 'base_.html'),
@@ -149,6 +153,7 @@ var config_dt_ = Object.assign({}, config, {
         clean: true
     },
     plugins: [
+        new ESLintPlugin({fix:true, files:["src/**/*.js"]}),
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'src', 'djapy_app','index.ejs'),
             filename: path.resolve(__dirname,'templates', 'base-gen', 'base_dt.html'),

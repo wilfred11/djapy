@@ -1,3 +1,3 @@
-console.log('test');
-alert('ok');
-console.log('rt');
+console.log("test");
+alert("ok");
+console.log("rt");

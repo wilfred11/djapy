@@ -1,0 +1,19 @@
+{
+  "rules": {
+        "no-var": 0,
+        "prettier/prettier": ["error"]
+    },
+  "extends": ["prettier","eslint:recommended"],
+  "plugins": ["prettier"],
+   "parserOptions": {
+        "sourceType": "module",
+        "ecmaVersion": 13,
+        "requireConfigFile": false,
+    },
+    "parser": "@babel/eslint-parser",
+    "env": {
+        "browser": true,
+    },
+
+
+}
