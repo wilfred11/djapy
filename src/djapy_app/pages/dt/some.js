@@ -51,6 +51,8 @@ $(document).ready(function () {
         last: "Last",
         next: "Next",
         previous: "Previous",
+        kj: "",
+        k: ""
       },
     },
   });

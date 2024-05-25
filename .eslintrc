@@ -3,7 +3,7 @@
         "no-var": 0,
         "prettier/prettier": ["error"]
     },
-  "extends": ["prettier","eslint:recommended"],
+  "extends": ["eslint:recommended", "prettier"],
   "plugins": ["prettier"],
    "parserOptions": {
         "sourceType": "module",
