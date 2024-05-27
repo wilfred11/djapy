@@ -1,3 +1,1 @@
-console.log("test");
-
-alert("");
+console.log("page_1");
