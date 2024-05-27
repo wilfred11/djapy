@@ -1,10 +1,10 @@
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
-
-
 # Create your views here.
+from rest_framework import viewsets
 
-# Create your views here.
-@api_view(['GET'])
-def getData(request):
-    return Response()
+from rest_app.models import Individual
+from rest_app.serializers import IndividualSerializer
+
+
+class IndividualViewSet(viewsets.ModelViewSet):
+    queryset = Individual.objects.all()
+    serializer_class = IndividualSerializer

@@ -9,12 +9,12 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-import os
 
-#Todo https://www.sitepoint.com/managing-static-files-in-django-a-comprehensive-guide/
-#Todo https://www.saaspegasus.com/guides/modern-javascript-for-django-developers/integrating-javascript-pipeline/
-import environ
 from pathlib import Path
+
+# Todo https://www.sitepoint.com/managing-static-files-in-django-a-comprehensive-guide/
+# Todo https://www.saaspegasus.com/guides/modern-javascript-for-django-developers/integrating-javascript-pipeline/
+import environ
 
 env = environ.Env()
 environ.Env.read_env()
@@ -46,11 +46,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.db.backends.postgresql',
     'django_extensions',
+    'rest_framework',
     'djapy_app',
     'rest_app'
 ]
-
-
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
@@ -106,9 +105,6 @@ DATABASES = {
     }
 }
 
-
-
-
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
@@ -142,7 +138,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
-
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

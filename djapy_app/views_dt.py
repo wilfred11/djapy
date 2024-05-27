@@ -1,7 +1,6 @@
 import asyncio
 from datetime import date
 
-from django.shortcuts import render
 from django.views.generic import TemplateView
 
 from djapy_app.entity_api import ApiCall
@@ -38,17 +37,13 @@ class IndividualsPageView(TemplateView):
         context['content'] = self.get_json_data()
         return context
 
-    class SomePageView(TemplateView):
-        template_name = "gen/dt/some/some-gen.html"
 
-        def get_context_data(self, **kwargs):
-            context = super().get_context_data(**kwargs)
-            context['today'] = date.today()
-            context['content'] = 'no message'
-            context['title'] = 'Home'
-            return context
+class SomePageView(TemplateView):
+    template_name = "gen/dt/some/some-gen.html"
 
-
-def som(request):
-    content = "Hello, World!"
-    return render(request, "gen/dt/some/some-gen.html", {'content': content})
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['today'] = date.today()
+        context['content'] = 'no message'
+        context['title'] = 'Home'
+        return context
