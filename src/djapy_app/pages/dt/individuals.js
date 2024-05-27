@@ -1,6 +1,5 @@
 $(document).ready(function () {
   $("#example").DataTable({
-    //data: dataSrc,
     serverSide: true,
     ajax: {
       url: "api/individuals",
@@ -24,8 +23,6 @@ $(document).ready(function () {
         last: "Last",
         next: "Next",
         previous: "Previous",
-        kj: "",
-        k: "",
       },
     },
   });

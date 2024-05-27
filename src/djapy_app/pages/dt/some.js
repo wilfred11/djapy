@@ -1,33 +1,5 @@
 $(document).ready(function () {
-  var dataSrc = [
-    {
-      name: "Student 1",
-      age: 30,
-      city: "New York",
-      email: "student1@gmail.com",
-    },
-    {
-      name: "Student 2",
-      age: 30,
-      city: "New York",
-      email: "student2@gmail.com",
-    },
-    {
-      name: "Student 3",
-      age: 30,
-      city: "New York",
-      email: "student3@gmail.com",
-    },
-    {
-      name: "Student 4",
-      age: 30,
-      city: "New York",
-      email: "student4@gmail.com",
-    },
-  ];
-
   $("#example").DataTable({
-    //data: dataSrc,
     serverSide: true,
     ajax: {
       url: "api/some",
@@ -51,8 +23,6 @@ $(document).ready(function () {
         last: "Last",
         next: "Next",
         previous: "Previous",
-        kj: "",
-        k: "",
       },
     },
   });
