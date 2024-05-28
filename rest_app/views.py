@@ -41,7 +41,7 @@ class FamiliesPageView(TemplateView):
         return context
 
 
-class IndividualViewSet(ViewSet):
+class IndividualViewSetAsync(ViewSet):
 
     async def list(self, request):
         individuals_ = Individual.objects.all().values("id", "last_name", "first_name")

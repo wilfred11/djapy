@@ -32,6 +32,16 @@ class IndividualsPageView(TemplateView):
         return context
 
 
+class IndividualsPageViewAsync(TemplateView):
+    template_name = "gen/dt/individuals_async/individuals_async-gen.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["today"] = date.today()
+        context["title"] = "Individuals"
+        return context
+
+
 class SomePageView(TemplateView):
     template_name = "gen/dt/some/some-gen.html"
 
