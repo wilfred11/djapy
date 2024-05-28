@@ -19,6 +19,9 @@ django-rest-framework = "^0.1.0"
 django-extensions = "^3.2.3"
 django-datatables-view = "^1.20.0"
 black = "^24.4.2"
+adrf = "^0.1.6"
+daphne = "^4.1.2"
+marshmallow = "^3.21.2"
 
 
 [build-system]
