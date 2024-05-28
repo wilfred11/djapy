@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Todo https://www.sitepoint.com/managing-static-files-in-django-a-comprehensive-guide/
@@ -28,7 +29,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-u290&!af910@^hmje0r$_hvh4++%6g48lpg1eygg-tnngax22l"
 
-BEARER_KEY = env("BEARER_KEY")
+# BEARER_KEY = env("BEARER_KEY")
+FIXTURE_DIRS = (os.path.join(BASE_DIR, "fixtures"),)
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

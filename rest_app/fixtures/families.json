@@ -1,0 +1,9 @@
+[
+  {
+    "model": "rest_app.family",
+    "pk": 1,
+    "fields": {
+      "name": "Beatle"
+    }
+  }
+]

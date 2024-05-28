@@ -1,0 +1,20 @@
+[
+  {
+    "model": "rest_app.individual",
+    "pk": 1,
+    "fields": {
+      "first_name": "John",
+      "last_name": "Lennon",
+      "family_id": 1
+    }
+  },
+  {
+    "model": "rest_app.individual",
+    "pk": 2,
+    "fields": {
+      "first_name": "Paul",
+      "last_name": "McCartney",
+      "family_id": 1
+    }
+  }
+]
