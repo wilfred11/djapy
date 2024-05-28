@@ -5,7 +5,7 @@ A postgres database server should be available on your localhost.
 
 A synced and an async restapi is available for an indivual.
 
-For webpack support: make sure to install nodejs and NPM. NPM is included wit nodejs.
+For webpack support: make sure to install nodejs and NPM. NPM is included with nodejs.
 
 To import bootstrap and the webpack libraries, use following command:
 
