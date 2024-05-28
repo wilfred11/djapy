@@ -15,7 +15,7 @@ class Individual(models.Model):
     first_name = models.CharField(max_length=50)
     email = models.CharField(max_length=50, null=True)
     add_date = models.DateField(default=django.utils.timezone.now)
-    family = models.ForeignKey(Family, on_delete=models.CASCADE)
+    family = models.ForeignKey(Family, on_delete=models.CASCADE, null=True)
 
     class Meta:
         db_table = "individuals"
