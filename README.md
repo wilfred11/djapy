@@ -1,5 +1,5 @@
-A first django configuration, with basic settings for usermanagement and static files. The project has its dependencies
-managed by poetry.
+An initial django configuration, with basic settings for usermanagement and static files. The project has its
+dependencies managed by poetry.
 
 A postgres database server should be available on your localhost.
 
