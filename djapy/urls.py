@@ -20,7 +20,8 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path("", include("djapy_app.urls")),
-    path('', include('rest_app.urls')),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+                  path('admin/', admin.site.urls),
+                  path("", include("djapy_app.urls")),
+                  path('', include('rest_app.urls')),
+                  path("__reload__/", include("django_browser_reload.urls")),
+              ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

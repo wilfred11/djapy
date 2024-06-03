@@ -1,16 +1,16 @@
 /* fixed first and second navbar */
 .set-z-index {
-    z-index: 1029!important
+  z-index: 1029!important
 }
 .kk{
 
 }
 .has-min-height {
-    min-height:122px;
+  min-height:122px;
 }
 
 .navbar-custom {
-    height: 50px;
+  height: 35px;
 }
 
 /* menu-items and elements padding */
@@ -22,13 +22,13 @@
 }
 
 .navbar-brand {
-    padding-left: .25rem
+  padding-left: .25rem
 }
 
 .navbar-toggler {
-    padding-right: .75rem!important
+  padding-right: .75rem!important
 }
 
 .nav-item {
-    padding-left: .75rem!important
+  padding-left: .75rem!important
 }

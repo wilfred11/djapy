@@ -22,6 +22,7 @@ black = "^24.4.2"
 adrf = "^0.1.6"
 daphne = "^4.1.2"
 marshmallow = "^3.21.2"
+django-browser-reload = "^1.12.1"
 
 
 [build-system]

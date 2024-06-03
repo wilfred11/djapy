@@ -32,7 +32,6 @@ SECRET_KEY = "django-insecure-u290&!af910@^hmje0r$_hvh4++%6g48lpg1eygg-tnngax22l
 # BEARER_KEY = env("BEARER_KEY")
 FIXTURE_DIRS = (os.path.join(BASE_DIR, "fixtures"),)
 
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -50,6 +49,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.db.backends.postgresql",
     "django_extensions",
+    "django_browser_reload",
     "rest_framework",
     "adrf",
     "djapy_app",
@@ -68,6 +68,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
 ROOT_URLCONF = "djapy.urls"
