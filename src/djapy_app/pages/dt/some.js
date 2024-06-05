@@ -1,29 +1,17 @@
 $(document).ready(function () {
-  $("#example").DataTable({
-    serverSide: true,
-    ajax: {
-      url: "api/some",
-      type: "GET",
-      dataSrc: "",
+  AjaxDatatableViewUtils.initialize_table(
+    $("#some"),
+    "dt/some",
+    {
+      // extra_options (example)
+      processing: false,
+      autoWidth: false,
+      full_row_select: true,
+      scrollX: false,
     },
-    columns: [{ data: "fields.l_name" }, { data: "fields.f_name" }],
-    paging: true,
-    searching: true,
-    ordering: true,
-    info: true,
-    language: {
-      search: "Search by name: ",
-      searchPlaceholder: "Enter name here",
-      lengthMenu: "Show _MENU_ records per page",
-      info: "Showing _START_ to _END_ of _TOTAL_ records",
-      infoEmpty: "No records available",
-      infoFiltered: "(filtered from _MAX_ total records)",
-      paginate: {
-        first: "First",
-        last: "Last",
-        next: "Next",
-        previous: "Previous",
-      },
+    {
+      // extra_data
+      // ..
     },
-  });
+  );
 });

@@ -1,13 +1,15 @@
 # pages/urls.py
 from django.urls import path
 
-from .views import HomePageView, Some_asJson
+from .models import Some
+from .views import HomePageView, Some_asJson, SomeAjaxDatatableView, Some_TemplateView, SomeJsonList
 from .views_dt import (
     IndividualsPageView,
     FamiliesPageView,
-    SomePageView,
     IndividualsPageViewAsync,
 )
+
+
 
 urlpatterns = [
     path("", HomePageView.as_view(), name="home"),
@@ -18,6 +20,9 @@ urlpatterns = [
         name="individuals-async",
     ),
     path("families", FamiliesPageView.as_view(), name="families1"),
-    path("api/some", Some_asJson, name="some-api"),
-    path("some", SomePageView.as_view(), name="some"),
+    path("api/some", SomeJsonList, name="some-api"),
+    path("dt/some", SomeAjaxDatatableView.as_view(), name="dt-some"),
+    path("some", Some_TemplateView.as_view(), name="some"),
+    #path('api/some', SomeAjaxDatatableView.as_view(), name="api-some"),
 ]
+

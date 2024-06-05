@@ -2,15 +2,13 @@
 .set-z-index {
   z-index: 1029!important
 }
-.kk{
 
-}
 .has-min-height {
   min-height:122px;
 }
 
 .navbar-custom {
-  height: 35px;
+  height: 33px;
 }
 
 /* menu-items and elements padding */

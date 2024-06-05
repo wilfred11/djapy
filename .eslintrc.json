@@ -1,4 +1,7 @@
 {
+  "globals": {
+    "AjaxDatatableViewUtils": true
+  },
   "rules": {
     "no-var": 0,
     "prettier/prettier": [

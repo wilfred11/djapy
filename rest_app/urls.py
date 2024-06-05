@@ -13,6 +13,6 @@ router1.register(r"individuals", views.IndividualViewSetAsync, basename="async")
 
 urlpatterns = [
     # path("api/", include((router.urls, "rest_app"), namespace="rest_app")),
-    path("api/async/", include((router1.urls, "rest_app"), namespace="rest_app")),
+    path("api/async/", include((router1.urls, "rest_app"), namespace="rest_app_async")),
     path("api/", include((router.urls, "rest_app"), namespace="rest_app")),
 ]

@@ -19,5 +19,7 @@
 
 {% block js %}
    {{ block.super }}
+   {% csrf_token %}
+   <script type="text/javascript" defer src="{% static 'ajax_datatable/js/utils.js' %}"></script>
    <%= htmlWebpackPlugin.tags.bodyTags %>
 {% endblock %}

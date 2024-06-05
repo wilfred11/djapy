@@ -1,12 +1,20 @@
 from datetime import date
 
 from django.core import serializers
+from django.core.mail.backends import console
 from django.http import HttpResponse, JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import TemplateView
 from django_datatables_view.base_datatable_view import BaseDatatableView
 from rest_framework.decorators import api_view
+from ajax_datatable.views import AjaxDatatableView
+from rest_framework.response import Response
 
 from djapy_app.models import Some
+
+import logging
+
+logger = logging.getLogger(__name__)
 
 
 # Create your views here.
@@ -30,7 +38,7 @@ class SomeAjaxDatatableView(BaseDatatableView):
 
 
 def SomeJsonList(request):
-    data = list(Some.objects.values())
+    data = list(Some.objects.values("id", "l_name", "f_name"))
     return JsonResponse({'data': data})
 
 
@@ -45,6 +53,10 @@ def some_list(request):
 
 
 def Some_asJson(request):
-    object_list = Some.objects.all()  # or any kind of queryset
-    json = serializers.serialize('json', object_list)
-    return HttpResponse(json, content_type='application/json')
+    logger.info('Some_asJson')
+    data = list(Some.objects.values())
+    return JsonResponse({'data': data})
+
+class Some_TemplateView(TemplateView):
+    logger.info('Some')
+    template_name = "gen/dt/some/some-gen.html"
