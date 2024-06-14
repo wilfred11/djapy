@@ -4,7 +4,15 @@
        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
        <meta charset="UTF-8" />
        {% block css %}
-        <%= htmlWebpackPlugin.tags.headTags %>
+          <%= htmlWebpackPlugin.tags.headTags.filter((tag) => tag.tagName === 'link').join('') %>
+        {% endblock %}
+         {% block js_head %}
+        <% for (index in htmlWebpackPlugin.files.js) { %>
+          <% if(index==1) { %>
+           <% /* %><p><%= index %> chunk: <%= htmlWebpackPlugin.files.js[index].substring(5,htmlWebpackPlugin.files.js[index].length) %></p><% */ %>
+          <script type="module" defer src="<%= htmlWebpackPlugin.files.js[index].substring(5,htmlWebpackPlugin.files.js[index].length) %>"></script>
+        <% } %>
+        <% } %>
         {% endblock %}
         <title>{% block title %}{% endblock %}</title>
    </head>
@@ -21,7 +29,12 @@
        {% endblock %}
        </div>
    </body>
-   {% block js %}
-   <%= htmlWebpackPlugin.tags.bodyTags %>
+   {% block js_body %}
+       <% for (index in htmlWebpackPlugin.files.js) { %>
+          <% if(index==0) { %>
+            <% /* %><p><%= index %> chunk: <%= htmlWebpackPlugin.files.js[index].substring(5,htmlWebpackPlugin.files.js[index].length) %></p><% */ %>
+            <script type="module" defer src="<%= htmlWebpackPlugin.files.js[index].substring(5,htmlWebpackPlugin.files.js[index].length) %>"></script>
+          <% } %>
+       <% } %>
    {% endblock %}
 {% endblock %}

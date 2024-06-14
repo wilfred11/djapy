@@ -24,6 +24,7 @@ daphne = "^4.1.2"
 marshmallow = "^3.21.2"
 django-browser-reload = "^1.12.1"
 django-ajax-datatable = "^4.5.0"
+poetry = "^1.8.3"
 
 
 [build-system]

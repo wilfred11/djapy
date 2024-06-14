@@ -4,7 +4,9 @@
       {{ block.super }}
       {# we can add more css here #}
 {% endblock %}
-
+{% block js_head %}
+   {{ block.super }}
+{% endblock %}
 {% block title %}
 {{ title }}
 {% endblock %}
@@ -17,7 +19,7 @@
 {{ content }}
 {% endblock %}
 
-{% block js %}
+{% block js_body %}
    {{ block.super }}
    <%= htmlWebpackPlugin.tags.bodyTags %>
 {% endblock %}

@@ -4,7 +4,9 @@
       {{ block.super }}
       {# we can add more css here #}
 {% endblock %}
-
+{% block js_head %}
+   {{ block.super }}
+{% endblock %}
 {% block title %}
 {{ title }}
 {% endblock %}
@@ -17,9 +19,8 @@
 {{ content }}
 {% endblock %}
 
-{% block js %}
+{% block js_body %}
    {{ block.super }}
    {% csrf_token %}
-   <script type="text/javascript" defer src="{% static 'ajax_datatable/js/utils.js' %}"></script>
    <%= htmlWebpackPlugin.tags.bodyTags %>
 {% endblock %}
